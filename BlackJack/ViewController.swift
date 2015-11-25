@@ -69,10 +69,26 @@ class ViewController: UIViewController {
             else {
                 value += card.value
             }
-            hand += card.suit + String(card.value) + " "
+            var temp = ""
+            if (card.value > 10)
+            {
+                if (card.value == 11){
+                    temp = "Jack"
+                }
+                else if (card.value == 12){
+                    temp = "Queen"
+                }
+                else if (card.value == 13){
+                    temp = "King"
+                }
+                hand += card.suit + ": " + temp + " "
+            }
+            else {
+                hand += card.suit + ": " + String(card.value) + " "
+            }
         }
         playerValueString.text = "Player Value:" + String(value)
-        playerCardString.text = ""
+        playerCardString.text = hand
     }
     
     func updateDealerInfo(){
@@ -85,7 +101,23 @@ class ViewController: UIViewController {
             else {
                 value += card.value
             }
-            hand += card.suit + String(card.value) + " "
+            var temp = ""
+            if (card.value > 10)
+            {
+                if (card.value == 11){
+                    temp = "Jack"
+                }
+                else if (card.value == 12){
+                    temp = "Queen"
+                }
+                else if (card.value == 13){
+                    temp = "King"
+                }
+                hand += card.suit + ": " + temp + " "
+            }
+            else {
+                hand += card.suit + ": " + String(card.value) + " "
+            }
         }
         dealerValueString.text = "Dealer Value:" + String(value)
         dealerCardString.text = hand
