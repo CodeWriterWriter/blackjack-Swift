@@ -42,6 +42,7 @@ class ViewController: UIViewController {
     }
     
     func deckSetUp(){
+        deck.removeAll()
         for suit in suits{
             for var i = 1; i < 14; i++ {
                 deck.append(Card(suitName: suit, cardValue: i))
