@@ -12,6 +12,7 @@
 		8E28B4941C06246E009F40EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E28B4921C06246E009F40EE /* Main.storyboard */; };
 		8E28B4961C06246E009F40EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E28B4951C06246E009F40EE /* Assets.xcassets */; };
 		8E28B4991C06246E009F40EE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E28B4971C06246E009F40EE /* LaunchScreen.storyboard */; };
+		8E28B4A11C0624B4009F40EE /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E28B4A01C0624B4009F40EE /* Card.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		8E28B4951C06246E009F40EE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8E28B4981C06246E009F40EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8E28B49A1C06246E009F40EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8E28B4A01C0624B4009F40EE /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			children = (
 				8E28B48E1C06246E009F40EE /* AppDelegate.swift */,
 				8E28B4901C06246E009F40EE /* ViewController.swift */,
+				8E28B4A01C0624B4009F40EE /* Card.swift */,
 				8E28B4921C06246E009F40EE /* Main.storyboard */,
 				8E28B4951C06246E009F40EE /* Assets.xcassets */,
 				8E28B4971C06246E009F40EE /* LaunchScreen.storyboard */,
@@ -135,6 +138,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E28B4911C06246E009F40EE /* ViewController.swift in Sources */,
+				8E28B4A11C0624B4009F40EE /* Card.swift in Sources */,
 				8E28B48F1C06246E009F40EE /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
