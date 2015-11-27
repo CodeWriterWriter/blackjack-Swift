@@ -20,11 +20,18 @@ class ViewController: UIViewController {
         case PlayerTurn
         case DealerTurn
     }
+    enum gameState {
+        case Ongoing
+        case Finished
+    }
     let suits = ["Hearts","Clubs","Spades","Diamonds"]
     var deck: [Card] = []
     var playerHand: [Card] = []
+    var playerValue = 0
     var dealerHand: [Card] = []
+    var dealerValue = 0
     var currentTurn = turn.PlayerTurn
+    var currentGameState = gameState.Ongoing
     
     func shuffle (var array: [Card]) ->  [Card]{
             for var i = array.count-1; i > 0 ; i-- {
@@ -88,10 +95,55 @@ class ViewController: UIViewController {
                 hand += card.suit + ": " + String(card.value) + " "
             }
         }
+        playerValue = value
         playerValueString.text = "Player Value:" + String(value)
         playerCardString.text = hand
     }
+    @IBAction func Hit(sender: UIButton) {
+        if (currentGameState == gameState.Ongoing){
+            if (currentTurn == turn.DealerTurn) {}
+            else{
+                playerHand.append(draw())
+                updatePlayerInfo()
+            }
+            if (playerValue > 21)
+            {
+                currentGameState = gameState.Finished
+                playerValueString.text = "You lose"
+                
+            }
+        }
+        else {
+            deckSetUp();
+            gameSetUp()
+        }
+    }
     
+    @IBAction func Stay(sender: UIButton) {
+        if (currentGameState == gameState.Ongoing){
+            if (currentTurn == turn.DealerTurn) {}
+            else {
+                currentTurn = turn.DealerTurn
+                while (dealerValue < 16){
+                    dealerHand.append(draw())
+                    updateDealerInfo()
+                }
+                currentGameState = gameState.Finished
+                if (((dealerValue > playerValue) && !(dealerValue > 21)) || (playerValue > 21))
+                {
+                    playerValueString.text = "You lose"
+                }
+                else if (dealerValue == playerValue)
+                {
+                    playerValueString.text = "Tied"
+                }
+                else
+                {
+                    playerValueString.text = "You win"
+                }
+            }
+        }
+    }
     func updateDealerInfo(){
         var value = 0
         var hand = ""
@@ -120,10 +172,17 @@ class ViewController: UIViewController {
                 hand += card.suit + ": " + String(card.value) + " "
             }
         }
+        dealerValue = value
         dealerValueString.text = "Dealer Value:" + String(value)
         dealerCardString.text = hand
     }
     func gameSetUp(){
+        playerValue = 0
+        playerHand.removeAll()
+        dealerValue = 0
+        dealerHand.removeAll()
+        currentTurn = turn.PlayerTurn
+        currentGameState = gameState.Ongoing
         playerHand.append(draw())
         updatePlayerInfo()
         dealerHand.append(draw())
